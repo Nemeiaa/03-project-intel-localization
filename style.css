@@ -107,6 +107,9 @@ body::before {
 
 /* Card images */
 .card img {
+  display: block; /* Remove Bootstrap's inline-block or responsive image styles */
+  margin-left: auto;
+  margin-right: auto;
   width: 90%; /* Keep image size consistent */
   height: 200px; /* Slightly smaller image height */
   object-fit: cover; /* Crop image to fill area without distortion */
@@ -185,4 +188,60 @@ body > p {
     margin-right: 0; /* Remove right margin */
     margin-bottom: 20px; /* Add space between stacked cards */
   }
+}
+
+/* Fix for Bootstrap overriding card headings and images */
+.card h2, .card h3 {
+  /* Reset font size and weight to your preference */
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0.5em 0 0.2em 0;
+  line-height: 1.1;
+}
+
+.card h3 {
+  font-size: 1.1em;
+  font-weight: normal;
+}
+
+.card img {
+  display: block; /* Remove Bootstrap's inline-block or responsive image styles */
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%; /* Keep your custom width */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+/* Prevent Bootstrap from shrinking your cards */
+.card {
+  flex: 0 0 auto !important;
+  min-width: 250px;
+  max-width: 250px;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+/* Ensure images are responsive */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom gradient for the footer using Bootstrap's .bg-gradient helper */
+footer {
+  background: linear-gradient(135deg, #4f8ef7 0%, #003366 100%);
+  color: white; /* Make text easy to read */
+  padding: 16px 0; /* Add space above and below the text */
+  text-align: center; /* Center the text horizontally */
+  margin-top: 40px;
+  margin-bottom: 0;
+  /* Remove default margin from any child elements */
+}
+
+footer p {
+  margin: 0; /* Remove default paragraph margin for perfect centering */
 }
