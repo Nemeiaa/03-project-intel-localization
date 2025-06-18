@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box; /* Ensure padding and borders are included in element's total width and height */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Set a background image for the whole page with lower opacity using a pseudo-element */
+body {
+    position: relative; /* Needed for the pseudo-element to be positioned correctly */
+    /* Remove background-image from here if already set */
+}
+
+/* Add a semi-transparent background image using ::before */
+body::before {
+    content: "";
+    position: fixed; /* Cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/blue-background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3; /* Lower opacity for the background image */
+    z-index: -1;  /* Make sure it stays behind all content */
+    pointer-events: none; /* Allow clicks through the background */
+}
+
+/* Hero section with a blue gradient background */
+.hero {
+  /* Gradient background from a lighter to a deeper blue */
+  background: linear-gradient(135deg, #4f8ef7 0%, #003366 100%);
+  color: white; /* Make text easy to read */
+  padding: 60px 20px; /* Add space above and below */
+  text-align: center; /* Center all content */
+  margin-bottom: 40px; /* Adds space below the hero */
+}
+
+/* Container for hero content */
+.hero-content {
+  max-width: 600px; /* Limit width for readability */
+  margin: 0 auto; /* Center horizontally */
+}
+
+/* Intel logo styling */
+.hero-logo {
+  width: 180px; /* Make logo large */
+  margin-bottom: 24px; /* Space below logo */
+}
+
+/* Main heading styling */
+.hero-title {
+  font-size: 2.5em; /* Large font for main title */
+  margin-bottom: 24px; /* Space below heading */
+  font-weight: bold;
+}
+
+/* Subtitle styling */
+.hero-subtitle {
+  font-size: 1.3em; /* Smaller than main heading */
+  margin-bottom: 0; /* No extra space needed */
+  color: #e0e7ef; /* Slightly lighter for contrast */
+}
+
+/* Container for all cards */
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start; /* Align cards to the left */
+  gap: 20px;
+  margin: 50px auto 0 auto; /* Increase the top margin to move cards down */
+  overflow-x: auto;
+  padding: 16px 0 16px 16px; /* No left/right padding for perfect alignment */
+  max-width: 1160px;
+  box-sizing: border-box;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 32px; /* Adds space below the cards */
+}
+
+/* Individual card styling */
+.card {
+  background: #ffffff; /* White background for cards */
+  color: #222; /* Dark text for readability */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Soft shadow for card effect */
+  padding: 8px; /* Slightly less padding */
+  width: 250px; /* Fixed width for all screens */
+  min-width: 250px;           /* Set a fixed width for each card */
+  max-width: 250px;           /* Prevent cards from growing too wide */
+  margin-right: 16px;         /* Space between cards */
+  min-height: 300px; /* Slightly smaller height */
+  text-align: center; /* Center text and images */
+  transition: transform 0.2s; /* Smooth effect on hover */
+  position: relative; /* Needed for absolute overlay */
+  scroll-snap-align: start;   /* Snap each card to the start when scrolling */
+}
+
+/* Make cards stand out a bit when hovered */
+.card:hover {
+  /* On hover, use a left-to-right gradient from light blue to dark blue */
+  background: linear-gradient(to right, rgba(173, 216, 230, 1), #003366); /* Light blue to dark blue */
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(104, 144, 255, 0.767);
+}
+
+/* Card images */
+.card img {
+  width: 90%; /* Keep image size consistent */
+  height: 200px; /* Slightly smaller image height */
+  object-fit: cover; /* Crop image to fill area without distortion */
+  border-radius: 6px; /* Slightly rounded image corners */
+  margin-bottom: 8px; /* Less space below image */
+  margin-top: 8px; /* Add space above the image */
+}
+
+/* Card description overlay - hidden by default */
+.card-description {
+  display: flex; /* Use flex to center text */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  position: absolute; /* Position over the card */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use a blue gradient background for the overlay */
+  background: linear-gradient(
+    135deg,
+    rgba(57, 101, 247, 0.92) 0%,
+    rgba(5, 25, 94, 0.75) 100%
+  );
+  color: #fff; /* White text for contrast */
+  border-radius: 10px; /* Match card corners */
+  padding: 24px; /* Space for text */
+  box-sizing: border-box;
+  opacity: 0; /* Start hidden */
+  pointer-events: none; /* Prevent accidental hover when hidden */
+  transition: opacity 0.2s;
+  text-align: center;
+  z-index: 1; /* Make sure overlay is above card content */
+}
+
+/* Show the overlay when the card is hovered */
+.card:hover .card-description {
+  opacity: 1; /* Fade in overlay */
+  pointer-events: auto; /* Allow interaction */
+}
+
+/* Optional: Hide the description's space when not hovered */
+.card p {
+  margin: 0;
+}
+
+/* Show the overlay when the card is hovered */
+.card:hover .card-description {
+  opacity: 1; /* Fade in overlay */
+  pointer-events: auto; /* Allow interaction */
+}
+
+/* Optional: Hide the description's space when not hovered */
+.card p {
+  margin: 0;
+}
+
+/* Center the bottom text and add spacing */
+body > p {
+    text-align: center; /* Center the text */
+    margin-top: 24px;   /* Add space above the text */
+    font-size: 1.3em;
+    /* You can adjust the margin as needed */
+}
+
+@media (max-width: 600px) {
+  /* Adjust card layout for smaller screens */
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards */
+  }
+
+  .card {
+    width: 90%; /* Full width on small screens */
+    max-width: none; /* Remove max-width constraint */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 20px; /* Add space between stacked cards */
+  }
+}
