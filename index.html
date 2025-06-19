@@ -17,7 +17,7 @@
     <!-- Hero container to center content -->
     <div class="hero-content">
       <!-- Intel logo -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="hero-logo" />
+      <img src="img/intel-header-logo.svg" alt="Intel company logo" class="hero-logo" />
       <!-- Main Heading -->
       <h1 class="hero-title">
         Sustainability Through the Ages
@@ -39,7 +39,7 @@
       <div class="card">
         <h2>1968</h2>
         <h3>Intel Founded</h3>
-        <img src="img/1.jpg" alt="Intel founders in 1968" />
+        <img src="img/1.jpg" alt="Robert Noyce and Gordon Moore, Intel founders, in 1968" />
         <!-- Description is hidden by default and shown on hover -->
         <div class="card-description">
           <p>
@@ -54,7 +54,7 @@
       <div class="card">
         <h2>1971</h2>
         <h3>First Microprocessor</h3>
-        <img src="img/2.jpg" alt="Intel 4004 microprocessor" />
+        <img src="img/2.jpg" alt="Intel 4004 microprocessor, the first commercial microprocessor" />
         <div class="card-description">
           <p>
             Intel debuts the 4004, the world's first commercial microprocessor, 
@@ -68,7 +68,7 @@
       <div class="card">
         <h2>1978</h2>
         <h3>8086 Processor</h3>
-        <img src="img/3.jpg" alt="Intel 8086 processor" />
+        <img src="img/3.jpg" alt="Intel 8086 processor chip" />
         <div class="card-description">
           <p>
             Launch of the 8086 processor, establishing the x86 architecture 
@@ -81,7 +81,7 @@
       <div class="card">
         <h2>1985</h2>
         <h3>386 Processor</h3>
-        <img src="img/4.jpg" alt="Intel 386 processor" />
+        <img src="img/4.jpg" alt="Intel 386 processor chip" />
         <div class="card-description">
           <p>
             Intel introduces the 386 processor with 32-bit architecture, 
@@ -96,7 +96,7 @@
         <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
         <!-- Replaced placeholder with actual image -->
-        <img src="img/GHG-Emissions.jpg" alt="Peak GHG Emissions in 2006" />
+        <img src="img/GHG-Emissions.jpg" alt="Graph showing Intel's peak greenhouse gas emissions in 2006" />
         <div class="card-description">
           <p>
             This year marks Intel's highest annual greenhouse gas emissions 
@@ -112,7 +112,7 @@
         <h2>2020</h2>
         <h3>RISE Strategy</h3>
         <!-- Replaced placeholder with actual image -->
-        <img src="img/RISE-strategy.jpg" alt="RISE Strategy in 2020" />
+        <img src="img/RISE-strategy.jpg" alt="Intel RISE strategy logo, launched in 2020" />
         <div class="card-description">
           <p>
             Intel launches its RISE (Responsible, Inclusive, Sustainable, 
@@ -127,7 +127,7 @@
         <h2>2022</h2>
         <h3>Net-Zero By 2040</h3>
         <!-- Replaced placeholder with actual image -->
-        <img src="img/Net-Zero.jpg" alt="Net-Zero By 2040 in 2022" />
+        <img src="img/Net-Zero.jpg" alt="Intel Net-Zero by 2040 announcement graphic" />
         <div class="card-description">
           <p>
             Intel announces its commitment to achieve net-zero greenhouse 
@@ -142,7 +142,7 @@
         <h2>2023</h2>
         <h3>Renewable Electricity</h3>
         <!-- Replaced placeholder with actual image -->
-        <img src="img/Renewable-Electricity.jpg" alt="Renewable Electricity in 2023" />
+        <img src="img/Renewable-Electricity.jpg" alt="Intel renewable electricity achievement in 2023" />
         <div class="card-description">
           <p>
             The company achieves 99% renewable electricity usage worldwide, 
@@ -157,7 +157,7 @@
         <h2>2024</h2>
         <h3>Sustainability Summit</h3>
         <!-- Replaced placeholder with actual image -->
-        <img src="img/Sustainability-Summit.jpg" alt="Sustainability Summit in 2024" />
+        <img src="img/Sustainability-Summit.jpg" alt="Intel Sustainability Summit event in 2024" />
         <div class="card-description">
           <p>
             Intel hosts its first Sustainability Summit, uniting suppliers, 
@@ -221,21 +221,29 @@
           <div class="p-3 border rounded bg-light text-center mt-4">
             <h2>Stay Updated!</h2>
             <p>Enter your email to receive the latest news from Intel.</p>
-            <!-- Simple subscription form -->
-            <form>
-              <!-- Email input box -->
+            <!-- Accessible subscription form with label and aria-label -->
+            <form aria-label="Subscribe to Intel updates">
+              <!-- Label for email input for accessibility -->
+              <label for="subscribe-email" class="form-label" style="font-weight: bold;">
+                Email address
+              </label>
+              <!-- Email input box with id and autocomplete -->
               <input 
                 type="email" 
-                class="form-control mb-2" 
-                placeholder="Enter your email" 
+                id="subscribe-email"
+                class="form-control mb-2"
+                placeholder="Enter your email"
+                name="email"
                 required
+                autocomplete="email"
+                aria-required="true"
               />
-              <!-- Subscribe button -->
-             <section style="margin-top: 20px;">   
-              <button type="submit" class="btn btn-primary">
-                Subscribe
-              </button>
-             </section>  
+              <!-- Subscribe button with clear label -->
+              <div style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary" aria-label="Subscribe to Intel updates">
+                  Subscribe
+                </button>
+              </div>
             </form>
           </div>
         </div>
